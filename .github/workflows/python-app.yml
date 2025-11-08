@@ -14,4 +14,6 @@ jobs:
       with:
         python-version: 3.9
     - name: Run script
-      run: python basic_operations.py
+      run: |
+        cd python_introduction
+        python basic_operations.py
