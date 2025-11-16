@@ -1,23 +1,20 @@
-import datetime
+task = input("Enter your task: ")
+priority = input("Priority (high/medium/low): ")
+time_bound = input("Is it time-bound? (yes/no): ")
 
-def get_time_of_day():
-    current_hour = datetime.datetime.now().hour
-    if 5 <= current_hour < 12:
-        return "morning"
-    elif 12 <= current_hour < 18:
-        return "afternoon"
-    else:
-        return "evening"
-
-def get_daily_task(time_of_day):
-    tasks = {
-        "morning": "Start your day with a healthy breakfast and a quick review of your goals.",
-        "afternoon": "Time for a productive work session or to tackle your main tasks.",
-        "evening": "Wind down with a relaxing activity, like reading or a light walk."
-    }
-    return tasks.get(time_of_day, "No specific reminder for this time.")
-
-if __name__ == "__main__":
-    time_of_day = get_time_of_day()
-    task = get_daily_task(time_of_day)
-    print(f"Good {time_of_day}! Here's your reminder: {task}")
+match priority:
+    case "high":
+        if time_bound == "yes":
+            print(f"Reminder: '{task}' is a high priority task that requires immediate attention today!")
+        else:
+            print(f"Note: '{task}' is a high priority task. Make sure to complete it today.")
+    case "medium":
+        if time_bound == "yes":
+            print(f"Reminder: '{task}' is a medium priority task that requires immediate attention today!")
+        else:
+            print(f"Note: '{task}' is a medium priority task. Try to complete it soon.")
+    case "low":
+        if time_bound == "yes":
+            print(f"Reminder: '{task}' is a low priority task that requires immediate attention today!")
+        else:
+            print(f"Note: '{task}' is a low priority task. Consider completing it when you have free time.")
